@@ -9,12 +9,12 @@ require 'pg'
 
 Capybara.app = Makersbnb
 
-# RSpec.configure do |config|
-#   config.before(:each) do
-#     conn = PG.connect( dbname: "makersbnb_manager_test")
-#     conn.exec("TRUNCATE 'name here'")
-#   end
-# end
+RSpec.configure do |config|
+  config.before(:each) do
+    connection = PG.connect( dbname: "makersbnb_manager_test")
+    connection.exec('TRUNCATE users')
+  end
+end
 
 require 'simplecov'
 require 'simplecov-console'
