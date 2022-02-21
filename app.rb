@@ -29,7 +29,7 @@ class Makersbnb < Sinatra::Base
   end
 
   post 'sessions/confirm' do
-    @user = User.find(username: params['username'], password: params['passowrd'])
+    @user = User.identify(username: params['username'], password: params['passowrd'])
     redirect '/spaces'
   end
 
