@@ -26,9 +26,10 @@ feature 'homepage' do
   scenario 'An already signed up user logs in' do
     visit '/'
     click_button 'login'
-    expect(page).to have_current_path '/sessions/new'
+    # expect(page).to have_current_path '/sessions/new'
     fill_in('username', with: "eddiearnold")
     fill_in('password', with: "12345")
+    click_button 'Submit'
     expect(page).to have_current_path '/spaces'
 
   end
