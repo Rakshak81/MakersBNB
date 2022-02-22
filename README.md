@@ -74,3 +74,4 @@ I would like to only see the available dates for that space
 
 MVC Model of Makerbnb website code:
 
+![](Makersbnb_model.png)
