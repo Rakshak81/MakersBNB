@@ -6,13 +6,13 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'pg'
+require_relative './setup_test_database'
 
 Capybara.app = Makersbnb
 
 RSpec.configure do |config|
   config.before(:each) do
-    connection = PG.connect( dbname: "makersbnb_manager_test")
-    connection.exec('TRUNCATE users')
+    setup_test_database
   end
 end
 
