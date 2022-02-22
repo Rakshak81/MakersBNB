@@ -20,7 +20,7 @@ feature 'homepage' do
     fill_in('password confirmation', with: "12345")
     fill_in('email', with: "eddie@me.com")
     click_button 'Submit'
-    expect(page).to have_current_path '/spaces'
+    expect(page).to have_current_path '/spaces/index'
   end
 
   scenario 'An already signed up user logs in' do
@@ -30,14 +30,14 @@ feature 'homepage' do
     fill_in('username', with: "eddiearnold")
     fill_in('password', with: "12345")
     click_button 'Submit'
-    expect(page).to have_current_path '/spaces'
+    expect(page).to have_current_path '/spaces/index'
 
   end
 end
 
 feature 'spaces' do
   scenario 'visit spaces page' do
-    visit '/spaces'
+    visit '/spaces/index'
     # expect(page).to have_content "sunny camping site"
     # expect(page).to have_content "a sunny field to spend your holiday"
     expect(page).to have_selector(:link_or_button, 'sign out')
@@ -57,7 +57,7 @@ feature 'list a space' do
     fill_in('start_date', with: '2022-02-22')
     fill_in('end_date', with: '2023-02-27')
     click_button 'list my space'
-    expect(page).to have_current_path '/spaces'
+    expect(page).to have_current_path '/spaces/new'
     expect(page).to have_content "house"
     expect(page).to have_content 'fancy home'
 

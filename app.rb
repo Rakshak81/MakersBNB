@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/user'
+require_relative './lib/space'
 
 class Makersbnb < Sinatra::Base
   configure :development do
@@ -47,11 +48,14 @@ class Makersbnb < Sinatra::Base
 post '/spaces/new' do
   user = session[:user_id]
   @space = Space.create(name: params['name'], description: params['description'], price: params['price'], start_date: params['start_date'], end_date: params['end_date'], user_id: user)
+  # p 'Looooooook here '
+  # p @space
   redirect '/spaces/index'
 end
-# get '/spaces' do
-#     erb :spaces
-#   end
+get '/sessions/logout' do
+    session.clear
+    redirect '/'
+  end
 
   run! if app_file == $0
 end
