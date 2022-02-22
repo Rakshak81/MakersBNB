@@ -22,8 +22,21 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/spaces/index' do
-    @spaces = Space.all
+    @spaces= Space.all
     erb :'spaces/index'
+  end
+
+  post '/spaces/availability' do
+    session[:available_from] = params['available from']
+    session[:available_to] = params['available to']
+    @spaces = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+    redirect '/spaces/available'
+  end
+  get '/spaces/available' do
+    session[:available_from] = params['available from']
+    session[:available_to] = params['available to']
+    @spaces = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+    erb :'spaces/available'
   end
 
   get '/sessions/new' do
@@ -31,7 +44,6 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/sessions/confirm' do
-
     @user = User.identify(username: params['username'], password: params['password'])
    if @user 
     session[:user_id] = @user.id
