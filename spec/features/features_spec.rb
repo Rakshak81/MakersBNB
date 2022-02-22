@@ -1,3 +1,5 @@
+require_relative 'web_helpers'
+
 feature 'homepage' do
   scenario 'we see makersbnb on front page' do
     visit ('/')
@@ -15,11 +17,7 @@ feature 'homepage' do
 
   scenario 'users signs up and is directed to spaces' do
     visit '/'
-    fill_in('username', with: "eddiearnold")
-    fill_in('password', with: "12345")
-    fill_in('password confirmation', with: "12345")
-    fill_in('email', with: "eddie@me.com")
-    click_button 'Submit'
+    login
     expect(page).to have_current_path '/spaces/index'
   end
 
@@ -49,17 +47,24 @@ feature 'spaces' do
   end
 end
 feature 'list a space' do
-  scenario 'a user a space to the spaces table' do 
-    visit '/spaces/new'
-    fill_in('name', with: "house")
-    fill_in('description', with: 'fancy home')
-    fill_in('price', with: '100')
-    fill_in('start_date', with: '2022-02-22')
-    fill_in('end_date', with: '2023-02-27')
-    click_button 'list my space'
+  scenario 'a user adds a space to the spaces table' do 
+    login
+    click_link('list a space', href: 'http://localhost:9292/spaces/new')
+    add_space
     expect(page).to have_current_path '/spaces/new'
     expect(page).to have_content "house"
     expect(page).to have_content 'fancy home'
+  end
+end
 
+  feature 'view a list of spaces' do
+    scenario 'a user views the list of available spaces' do
+    login
+    click_link('list a space', href: 'http://localhost:9292/spaces/new')
+    add_space
+    # click_link('list a space', href: 'http://localhost:9292/spaces/new')
+    # add_space_2
+   expect(page).to have_content 'house'
+  #  expect(page).to have_content 'house2'
   end
 end

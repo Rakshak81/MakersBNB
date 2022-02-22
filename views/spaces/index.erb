@@ -2,8 +2,8 @@
 <button>list a space</button>
 </a>
 <form>
-  <input type='text' name='available from' placeholder="available from"><br>
-  <input type='text' name='available to' placeholder="available to"><br>
+  <input type='date' name='available from' placeholder="available from"><br>
+  <input type='date' name='available to' placeholder="available to"><br>
   <input type='submit' value='list available spaces'>
   
 </form>
@@ -11,3 +11,13 @@
 <a href="http://localhost:9292/sessions/logout">
 <button>sign out</button>
 </a>
+
+<ul>
+<% @spaces.each do |space| %>
+    <li><%= space.name %></li>
+    <li><%= space.description %></li>
+    <li><%= space.price %></li>
+    <li><%= space.start_date %> - <%= space.end_date %></li><br>
+    
+<% end %>
+</ul>
