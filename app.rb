@@ -28,10 +28,18 @@ class Makersbnb < Sinatra::Base
     erb :'sessions/new'
   end
 
-  post 'sessions/confirm' do
+  post '/sessions/confirm' do
     @user = User.identify(username: params['username'], password: params['passowrd'])
-    redirect '/spaces'
+   if @user 
+      redirect '/spaces'
+   else
+    redirect '/'
+   end
   end
+
+# get '/spaces' do
+#     erb :spaces
+#   end
 
   run! if app_file == $0
 end

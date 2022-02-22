@@ -72,6 +72,27 @@ I would like to only see the available dates for that space
 ````
 
 
+Instructions for 'spaces' database creation within psql.:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE spaces;
+3. Connect to the database using the pqsl command \c spaces;
+4. Run the query we have saved in the file 01_CREATE_USER_TABLE.SQL
+5. Run the query we have saved in the file 02_add_title_to_bookmarks.sql
+
+
+Instructions for 'spaces' test database creation within psql.:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE bookmark_manager_test;
+3. Connect to the database using the pqsl command \c bookmark_manager_test;
+4. Run the query we have saved in the file 01_create_bookmarks_table.sql
+5. Run the query we have saved in the file 02_add_title_to_bookmarks.sql
+
+
+````
+
+
 MVC Model of Makerbnb website code:
 
 ![](Makersbnb_model.png)
