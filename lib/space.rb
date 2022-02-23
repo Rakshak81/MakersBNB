@@ -48,11 +48,13 @@ class Space
       connection = PG.connect(dbname: 'makersbnb_manager')
     end
     result = connection.exec("SELECT * FROM spaces
-      WHERE start_date BETWEEN 2022-02-22 and 2022-02-25").first
-    result.map do |space|
-      Space.new(id: space['id'], name: space['name'], description: space['description'], price: space['price'],
-        start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'])
-    end
+      WHERE start_date >= '#{available_from}' 
+      AND end_date < '#{available_to}'
+      AND confirmed = false")
+      result.map do |space|
+        Space.new(id: space['id'], name: space['name'], description: space['description'], price: space['price'],
+          start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'], requested: space['requested'], confirmed: space['confirmed'])
+      end
   end
 
   def self.request(id:, requested_by_id:)

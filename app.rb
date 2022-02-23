@@ -48,16 +48,17 @@ class Makersbnb < Sinatra::Base
   post '/spaces/availability' do
     session[:available_from] = params['available from']
     session[:available_to] = params['available to']
-    # @spaces = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
-    redirect '/spaces/available'
+    p Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+    @availability = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+    redirect '/spaces/index'
   end
 
-  get '/spaces/available' do
-    # session[:available_from] = params['available from']
-    # session[:available_to] = params['available to']
-    @spaces = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
-    erb :'spaces/available'
-  end
+  # get '/spaces/available' do
+  #   # session[:available_from] = params['available from']
+  #   # session[:available_to] = params['available to']
+  #   @spaces = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+  #   erb :'spaces/available'
+  # end
 
   get '/sessions/new' do
     erb :'sessions/new'
