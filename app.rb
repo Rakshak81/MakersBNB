@@ -8,7 +8,7 @@ class Makersbnb < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     erb :index
@@ -26,8 +26,8 @@ class Makersbnb < Sinatra::Base
     erb :'spaces/index'
   end
 
-  post '/spaces/:id' do
-    Space.request(id: params[:id])
+  patch '/spaces/:id' do
+    Space.request(id: params['id'], requested_by_id: session[:user_id])
     redirect '/spaces/index'
   end
 

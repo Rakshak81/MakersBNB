@@ -55,13 +55,13 @@ class Space
     end
   end
 
-  def self.request(id:)
+  def self.request(id:, requested_by_id:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_manager_test')
     else
       connection = PG.connect(dbname: 'makersbnb_manager')
     end
-    connection.exec("UPDATE spaces SET requested = TRUE, requested_by_id = '#{id}'
+    connection.exec("UPDATE spaces SET requested = TRUE, requested_by_id = '#{requested_by_id}'
     WHERE id = '#{id}'")
   end
 
