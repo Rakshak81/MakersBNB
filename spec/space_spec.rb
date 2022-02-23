@@ -26,4 +26,25 @@ describe Space do
       expect(spaces.last.user_id).to eq user.id
     end
   end
+
+  describe '.request' do
+    it 'changes the column requested of a specific space from false to true' do
+      user = User.create(username: 'eddiearnold', email: 'eddiearnold@me.com', password: '12345')
+      space = Space.create(name: 'house', description: 'fancy house', price: '100', start_date: '2022/02/22', end_date: '2023/02/27', user_id: user.id)
+      new_space = Space.request(id: space.id)
+      expect(new_space.request).to eq true
+    end
+  end
+
+  describe '.confirm' do
+    it 'changes the column of a space confirmed from false to true' do
+      user = User.create(username: 'eddiearnold', email: 'eddiearnold@me.com', password: '12345')
+      space = Space.create(name: 'house', description: 'fancy house', price: '100', start_date: '2022/02/22', end_date: '2023/02/27', user_id: user.id)
+      new_space = Space.request(id: space.id)
+      confirmed_space = Space.confirm(id: new_space.id)
+      expect(confirmed_space.confirm).to eq true
+    end
+  end
 end
+
+
