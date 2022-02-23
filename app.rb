@@ -26,10 +26,10 @@ class Makersbnb < Sinatra::Base
     erb :'spaces/index'
   end
 
-  post '/spaces/:id' do
-    Space.request(id: params[:id])
-    redirect '/spaces/index'
-  end
+  # post '/spaces/:id' do
+  #   Space.request(id: params[:id])
+  #   redirect '/spaces/index'
+  # end
 
   get '/spaces/requests' do
     @requests_made = Space.requests_made(requested_by_id: session[:user_id])
