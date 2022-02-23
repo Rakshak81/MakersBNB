@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/eddiearnold/Projects/Makersbnb/spec/features/features_spec.rb": {
+      "/Users/jaroslawromancudzich/Projects/Makersbnb/spec/features/features_spec.rb": {
         "lines": [
           1,
           null,
@@ -72,28 +72,39 @@
           1,
           null,
           null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
           null
         ]
       },
-      "/Users/eddiearnold/Projects/Makersbnb/spec/features/web_helpers.rb": {
+      "/Users/jaroslawromancudzich/Projects/Makersbnb/spec/features/web_helpers.rb": {
         "lines": [
           1,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
           null,
           null,
           1,
           null,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
           null,
           null,
           1,
@@ -107,7 +118,7 @@
           null
         ]
       },
-      "/Users/eddiearnold/Projects/Makersbnb/spec/space_spec.rb": {
+      "/Users/jaroslawromancudzich/Projects/Makersbnb/spec/space_spec.rb": {
         "lines": [
           1,
           null,
@@ -137,10 +148,31 @@
           1,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
-      "/Users/eddiearnold/Projects/Makersbnb/spec/user_spec.rb": {
+      "/Users/jaroslawromancudzich/Projects/Makersbnb/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -168,6 +200,6 @@
         ]
       }
     },
-    "timestamp": 1645552498
+    "timestamp": 1645622121
   }
 }

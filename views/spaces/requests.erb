@@ -1,0 +1,24 @@
+Requests made
+<ul>
+<% @requests_made.each do |space| %>
+    <li><%= space.name %></li>
+    <li><%= space.description %></li>
+    <li><%= space.price %></li>
+    <li><%= space.start_date %> - <%= space.end_date %></li>
+<% end %>
+</ul><br>
+
+
+Requests to confirm
+<ul>
+<% @requests_to_confirm.each do |space| %>
+    <li><%= space.name %></li>
+    <li><%= space.description %></li>
+    <li><%= space.price %></li>
+    <li><%= space.start_date %> - <%= space.end_date %></li>
+     <form action="/spaces/<%= space.id %>" method="post">
+        <input type="hidden" name="_method" value="PATCH" />
+        <input type="submit" value="Confirm request"/>
+      </form><br>
+<% end %>
+</ul>
