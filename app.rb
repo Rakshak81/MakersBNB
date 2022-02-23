@@ -26,16 +26,19 @@ class Makersbnb < Sinatra::Base
     erb :'spaces/index'
   end
 
-  # post '/spaces/:id' do
-  #   Space.request(id: params[:id])
-  #   redirect '/spaces/index'
-  # end
+  post '/spaces/:id' do
+    Space.request(id: params[:id])
+    redirect '/spaces/index'
+  end
 
   get '/spaces/requests' do
+    p'LOOK HERE'
+   p session
     @requests_made = Space.requests_made(requested_by_id: session[:user_id])
     @requests_to_confirm = Space.requests_to_confirm(user_id: session[:user_id])
     erb :'spaces/requests'
   end
+
 
   post '/spaces/availability' do
     session[:available_from] = params['available from']
@@ -56,8 +59,11 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/sessions/confirm' do
+    
     @user = User.identify(username: params['username'], password: params['password'])
-   if @user 
+   p "look here'"
+    p @user
+    if @user 
     session[:user_id] = @user.id
     session[:username] = @user.username
       redirect '/spaces/index'

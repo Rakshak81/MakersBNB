@@ -55,15 +55,15 @@ class Space
     end
   end
 
-#   def self.request(id:)
-#     if ENV['ENVIRONMENT'] == 'test'
-#       connection = PG.connect(dbname: 'makersbnb_manager_test')
-#     else
-#       connection = PG.connect(dbname: 'makersbnb_manager')
-#     end
-#   connection.exec("UPDATE spaces SET requested = TRUE
-#     WHERE id = '#{id}'")
-#   end
+  def self.request(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_manager_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb_manager')
+    end
+    connection.exec("UPDATE spaces SET requested = TRUE, requested_by_id = '#{id}'
+    WHERE id = '#{id}'")
+  end
 
 
 def self.requests_made(requested_by_id:)
@@ -72,10 +72,10 @@ def self.requests_made(requested_by_id:)
   else
     connection = PG.connect(dbname: 'makersbnb_manager')
   end
-result = connection.exec("SELECT * FROM spaces WHERE requested_by_id = '#{requested_by_id}' and requested = true")
-result.map do |space|
+  result = connection.exec("SELECT * FROM spaces WHERE requested_by_id = '#{requested_by_id}' and requested = TRUE")
+  result.map do |space|
   Space.new(id: space['id'], name: space['name'], description: space['description'], price: space['price'],
-    start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'])
+    start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'], requested: space['requested'], confirmed: space['confirmed'])
   end
 end
 
@@ -88,7 +88,7 @@ def self.requests_to_confirm(user_id:)
 result = connection.exec("SELECT * FROM spaces WHERE user_id = '#{user_id}' and requested = true")
 result.map do |space|
   Space.new(id: space['id'], name: space['name'], description: space['description'], price: space['price'],
-    start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'])
+    start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'], requested: space['requested'], confirmed: space['confirmed'])
     end
   end
 end
