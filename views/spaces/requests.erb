@@ -5,6 +5,11 @@ Requests made
     <li><%= space.description %></li>
     <li><%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
+    <% if space.confirmed == true  %>
+       confirmed
+    <% else %>
+        awaiting confirmation
+    <% end %><br>
 <% end %>
 </ul><br>
 
@@ -16,9 +21,11 @@ Requests to confirm
     <li><%= space.description %></li>
     <li><%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
-     <form action="/spaces/<%= space.id %>" method="post">
+     <form action="/spaces/<%= space.id %>/confirm" method="post">
         <input type="hidden" name="_method" value="PATCH" />
         <input type="submit" value="Confirm request"/>
       </form><br>
 <% end %>
 </ul>
+
+Signed in as <%= @user %>

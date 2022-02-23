@@ -17,27 +17,28 @@ class Makersbnb < Sinatra::Base
   post '/signup' do
     @user = User.create(email: params['email'], username: params['username'], password: params['password'])
     session[:user_id] = @user.id
-    session[:user_name] = @user.username
+    session[:username] = @user.username
     redirect '/spaces/index'
   end
 
   get '/spaces/index' do
+    @user = session[:username]
     @spaces= Space.all
     erb :'spaces/index'
   end
 
-  patch '/spaces/:id' do
+  patch '/spaces/:id/request' do
     Space.request(id: params['id'], requested_by_id: session[:user_id])
     redirect '/spaces/index'
   end
 
-  post '/spaces/:id' do
+  patch '/spaces/:id/confirm' do
     Space.confirm_request(id: params['id'])
     redirect '/spaces/index'
   end
 
   get '/spaces/requests' do
-   
+    @user = session[:username]
     @requests_made = Space.requests_made(requested_by_id: session[:user_id])
     @requests_to_confirm = Space.requests_to_confirm(user_id: session[:user_id])
     erb :'spaces/requests'
@@ -80,10 +81,10 @@ class Makersbnb < Sinatra::Base
 
 post '/spaces/new' do
   user = session[:user_id]
-  @space = Space.create(name: params['name'], description: params['description'], price: params['price'], start_date: params['start_date'], end_date: params['end_date'], user_id: user)
- 
+  Space.create(name: params['name'], description: params['description'], price: params['price'], start_date: params['start_date'], end_date: params['end_date'], user_id: user)
   redirect '/spaces/index'
 end
+
 get '/sessions/logout' do
     session.clear
     redirect '/'

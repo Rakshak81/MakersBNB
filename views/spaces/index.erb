@@ -22,10 +22,12 @@
     <li><%= space.description %></li>
     <li><%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
-     <form action="/spaces/<%= space.id %>" method="post">
+     <form action="/spaces/<%= space.id %>/request" method="post">
         <input type="hidden" name="_method" value="PATCH" />
         <input type="submit" value="Request Space"/>
       </form><br>
 <% end %>
 </ul>
+
+Signed in as <%= @user %>
 
