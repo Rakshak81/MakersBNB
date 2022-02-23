@@ -91,4 +91,14 @@ result.map do |space|
     start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'], requested: space['requested'], confirmed: space['confirmed'])
     end
   end
+
+  def self.confirm_request(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_manager_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb_manager')
+    end
+    connection.exec("UPDATE spaces SET confirmed = TRUE WHERE id = '#{id}'")
+  end
 end
+
