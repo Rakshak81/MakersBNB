@@ -5,11 +5,12 @@ Requests made
     <li><%= space.description %></li>
     <li><%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
-    <% if space.confirmed == true  %>
+    <% if space.confirmed == 't'  %>
        confirmed
     <% else %>
         awaiting confirmation
-    <% end %><br>
+    <% end %>
+    <br>
 <% end %>
 </ul><br>
 
