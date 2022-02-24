@@ -30,9 +30,11 @@ describe Space do
   describe '.request' do
     it 'changes the column requested of a specific space from false to true' do
       user = User.create(username: 'eddiearnold', email: 'eddiearnold@me.com', password: '12345')
+      user_two = User.create(username: 'charlotte', email: 'charlotte@me.com', password: '12345')
       space = Space.create(name: 'house', description: 'fancy house', price: '100', start_date: '2022/02/22', end_date: '2023/02/27', user_id: user.id)
-      new_space = Space.request(id: space.id)
-      expect(new_space.request).to eq true
+      Space.request(id: space.id, requested_by_id: user_two.id)
+      updated_space = Space.find(id: space.id)
+      expect(updated_space.requested).to eq 't'
     end
   end
 
@@ -43,8 +45,8 @@ describe Space do
       space = Space.create(name: 'house', description: 'fancy house', price: '100', start_date: '2022/02/22', end_date: '2023/02/27', user_id: user.id)
       Space.request(id: space.id, requested_by_id: user_two.id)
       Space.confirm_request(id: space.id)
-      new_space = Space.find(id: space.id)
-      expect(new_space.confirmed).to eq 't'
+      updated_space = Space.find(id: space.id)
+      expect(updated_space.confirmed).to eq 't'
     end
   end
 end
