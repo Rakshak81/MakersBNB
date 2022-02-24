@@ -49,7 +49,7 @@ class Space
     end
     result = connection.exec("SELECT * FROM spaces
       WHERE start_date >= '#{available_from}' 
-      AND end_date < '#{available_to}'
+      AND end_date <= '#{available_to}'
       AND confirmed = false")
       result.map do |space|
         Space.new(id: space['id'], name: space['name'], description: space['description'], price: space['price'],

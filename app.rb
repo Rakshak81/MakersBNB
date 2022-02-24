@@ -23,7 +23,11 @@ class Makersbnb < Sinatra::Base
 
   get '/spaces/index' do
     @user = session[:username]
-    @spaces= Space.all
+    if  session[:available_from].nil? && session[:available_to].nil?
+    @spaces = Space.all
+    else
+      @spaces = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+    end
     erb :'spaces/index'
   end
 
@@ -48,8 +52,8 @@ class Makersbnb < Sinatra::Base
   post '/spaces/availability' do
     session[:available_from] = params['available from']
     session[:available_to] = params['available to']
-    p Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
-    @availability = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+    # p Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
+    # @availability = Space.find_by(available_from: session[:available_from], available_to: session[:available_to])
     redirect '/spaces/index'
   end
 
