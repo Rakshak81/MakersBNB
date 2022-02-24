@@ -1,71 +1,57 @@
-Signed in as <%= @user %>                     
 
+
+              
 <br>
 <br>
 
 <html>
    <head>
-      <title>HTML Backgorund Color</title>
+      <title>Makersbnb</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@300;400&display=swap" rel="stylesheet">
    </head>
-   <body style="background-color:lightyellow;">
-     </body>
-</html>
 
-<a href="http://localhost:9292/sessions/logout">
-<button>Sign-out</button>
-</a>
+   <nav align="right" >
+      Signed in as <%= @user %> 
+      <a href="http://localhost:9292/sessions/logout"><button>Sign-out</button></a>
+      <a href="http://localhost:9292/spaces/requests"><button>Requests</button></a>
+      <a href="http://localhost:9292/spaces/new"><button>List a space</button></a>
+    </nav>
 
-<%# <div class="align-right">
-        <button type="button">Button</button>
-      </div> %>
-<br>
-<br>
+   <body style="background-color:lightyellow; font-family: 'Arimo', sans-serif;
+font-family: 'Barlow Condensed', sans-serif;">
+    
 
-<a href="http://localhost:9292/spaces/requests">
-<button>Requests</button>
-</a>
+<h1 align="center" > The world is your oyster</h1>
 
-<br>
-<br>
-
-<a href="http://localhost:9292/spaces/new">
-<button>List a space</button>
-</a>
-
-
-<br>
-<br>
 
 <form style="text-align: center;" action="/spaces/availability" method="post">
   <input type='date' name='available from' required min="<%= Date.today %>" max="<%= Date.today + 730%>" ><br>
   <input type='date' name='available to' required min="<%= Date.today %>" max="<%= Date.today + 730%>"><br>
   <input type='submit' value='List available spaces'>
-
 </form>
 
 <br>
 
-<ul> 
-<% @spaces.each do |space| %>
+<ul style="list-style-type: none"; align="center";> 
+  <% @spaces.each do |space| %>
     <li><%= space.name %></li>
     <li><%= space.description %></li>
-    <li><%= space.price %></li>
+    <li>£<%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
-
      <form style="text-align: center;" action="/spaces/<%= space.id %>/request" method="post">
         <input type="hidden" name="_method" value="PATCH" />
         <input type="submit" value="Request space" onclick="clicked(event)"/>
-
       </form><br>
-<% end %>
+  <% end %>
 </ul>
-
-
-
 
 <script>
 function clicked() {
     return confirm('request sent');
 }
 </script>
+ </body>
+</html>
 
