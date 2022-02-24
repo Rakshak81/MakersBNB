@@ -96,3 +96,5 @@ Instructions for 'spaces' test database creation within psql.:
 MVC Model of Makerbnb website code:
 
 ![](Makersbnb_model.png)
+
+TEST
