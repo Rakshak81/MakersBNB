@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/eddiearnold/Projects/Makersbnb/spec/features/features_spec.rb": {
+      "/Users/charlottebuchan/Projects/Makersbnb/spec/features/features_spec.rb": {
         "lines": [
           1,
           null,
@@ -76,35 +76,35 @@
           null,
           1,
           1,
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
           null,
           null
         ]
       },
-      "/Users/eddiearnold/Projects/Makersbnb/spec/features/web_helpers.rb": {
+      "/Users/charlottebuchan/Projects/Makersbnb/spec/features/web_helpers.rb": {
         "lines": [
           1,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
           null,
           null,
           1,
           null,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
           null,
           null,
           1,
@@ -118,7 +118,7 @@
           null
         ]
       },
-      "/Users/eddiearnold/Projects/Makersbnb/spec/space_spec.rb": {
+      "/Users/charlottebuchan/Projects/Makersbnb/spec/space_spec.rb": {
         "lines": [
           1,
           null,
@@ -151,6 +151,20 @@
           null,
           1,
           1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
           1,
           1,
           1,
@@ -163,6 +177,27 @@
           1,
           1,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           1,
           1,
           1,
@@ -176,7 +211,7 @@
           null
         ]
       },
-      "/Users/eddiearnold/Projects/Makersbnb/spec/user_spec.rb": {
+      "/Users/charlottebuchan/Projects/Makersbnb/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -204,6 +239,6 @@
         ]
       }
     },
-    "timestamp": 1645707180
+    "timestamp": 1645710152
   }
 }

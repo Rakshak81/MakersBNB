@@ -22,9 +22,9 @@
     <li><%= space.description %></li>
     <li><%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
-     <form class="property" action="/spaces/<%= space.id %>/request" method="post">
+     <form  action="/spaces/<%= space.id %>/request" method="post">
         <input type="hidden" name="_method" value="PATCH" />
-        <input type="submit" value="Request Space" onclick="clicked(event)"/>
+        <input type="submit" value="Request Space" name="Request Space" onclick="clicked(event)"/>
       </form><br>
 <% end %>
 </ul>
