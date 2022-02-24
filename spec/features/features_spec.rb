@@ -74,7 +74,7 @@ end
       login
       click_link('list a space', href: 'http://localhost:9292/spaces/new')
       add_space
-      first(:button, 'Request Space')
+      click_button 'Request Space'
       expect(page).to have_content 'Space requested'
     end
   end
