@@ -31,9 +31,10 @@ attr_reader :id, :username, :email, :password
     else
       connection = PG.connect(dbname: 'makersbnb_manager')
     end
-    result = connection.exec(
+    
+    result = connection.exec_params(
       "INSERT INTO users (username, email, password)
-    VALUES('#{username}', '#{email}', '#{password}') RETURNING id, username, email, password;").first
+    VALUES($1, $2, $3) RETURNING id, username, email, password;", [username, email, password]).first
       User.new(id: result['id'], username: result['username'], email: result['email'], password: result['password'])
   end
 
