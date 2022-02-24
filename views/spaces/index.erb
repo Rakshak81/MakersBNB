@@ -32,13 +32,15 @@ Signed in as <%= @user %>
 <button>List a space</button>
 </a>
 
+
 <br>
 <br>
 
 <form style="text-align: center;" action="/spaces/availability" method="post">
-  <input type='date' name='available from' required min="<%= Date.today %>"><br>
-  <input type='date' name='available to' required min="<%= Date.today %>"><br>
+  <input type='date' name='available from' required min="<%= Date.today %>" max="<%= Date.today + 730%>" ><br>
+  <input type='date' name='available to' required min="<%= Date.today %>" max="<%= Date.today + 730%>"><br>
   <input type='submit' value='List available spaces'>
+
 </form>
 
 <br>
@@ -49,13 +51,21 @@ Signed in as <%= @user %>
     <li><%= space.description %></li>
     <li><%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
+
      <form style="text-align: center;" action="/spaces/<%= space.id %>/request" method="post">
         <input type="hidden" name="_method" value="PATCH" />
-        <input type="submit" value="Request space"/>
+        <input type="submit" value="Request space" onclick="clicked(event)"/>
+
       </form><br>
 <% end %>
 </ul>
 
 
 
+
+<script>
+function clicked() {
+    return confirm('request sent');
+}
+</script>
 
