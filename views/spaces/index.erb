@@ -7,8 +7,8 @@
 <button>list a space</button>
 </a>
 <form action="/spaces/availability" method="post">
-  <input type='date' name='available from'><br>
-  <input type='date' name='available to'><br>
+  <input type='date' name='available from' required min="<%= Date.today %>"><br>
+  <input type='date' name='available to' required min="<%= Date.today %>"><br>
   <input type='submit' value='list available spaces'>
 </form>
 

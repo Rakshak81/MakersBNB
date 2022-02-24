@@ -4,8 +4,8 @@
 <input type='text' name='name' placeholder='name' required>
 <textarea name='description' rows="10" cols="3" required></textarea>
 <input type='number' name='price' placeholder='price' required>
-<input type='date' name='start_date' required>
-<input type='date' name='end_date' required>
+<input type='date' name='start_date' required min="<%= Date.today %>">
+<input type='date' name='end_date' required min="<%= Date.today %>">
 <input type='submit' value='list my space'>
 </form>
 
