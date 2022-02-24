@@ -4,7 +4,7 @@ def login
     fill_in('password', with: "12345")
     fill_in('password confirmation', with: "12345")
     fill_in('email', with: "eddie@me.com")
-    click_button 'Submit'
+    click_button 'Sign-up'
   end
 
   def add_space
@@ -14,7 +14,7 @@ def login
     fill_in('price', with: '100')
     fill_in('start_date', with: '2022-02-22')
     fill_in('end_date', with: '2023-02-27')
-    click_button 'list my space'
+    click_button 'List my space'
 end
 
 def add_space_2

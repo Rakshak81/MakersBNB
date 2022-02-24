@@ -1,31 +1,36 @@
 <html>
-   <head>
-      <title>HTML Backgorund Color</title>
+<head>
+      <title>Requests</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@300;400&display=swap" rel="stylesheet">
    </head>
-   <body style="background-color:orange;">
-     </body>
-</html>
+   
 
-<a href="http://localhost:9292/sessions/logout">
-<button>Sign-out</button>
-</a>
+<style> a {margin: 5px;}
+body {
+   background-color:orange;
+   font-family: 'Arimo', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+    
+}
+</style>
+<nav align="right" >
+Signed in as <%= @user %>
+<a href="http://localhost:9292/sessions/logout"><button>Sign-out</button></a> 
+<a href="http://localhost:9292/spaces/index"><button>Spaces</button></a>
+</nav>
 
-<br>
-<br>
 
-<a href="http://localhost:9292/spaces/index">
-<button>Spaces</button>
-</a>
-<br>
-<br>
+<body align="center">
+     
 
-
-Requests made
-<ul>
+<h2>Requests made</h2>
+<ul style="list-style-type: none";>
 <% @requests_made.each do |space| %>
     <li><%= space.name %></li>
     <li><%= space.description %></li>
-    <li><%= space.price %></li>
+    <li>£<%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
     <% if space.confirmed == 't'  %>
        confirmed
@@ -37,12 +42,12 @@ Requests made
 </ul><br>
 
 
-Requests to confirm
-<ul>
+<h2>Requests to confirm</h2>
+<ul style="list-style-type: none";>
 <% @requests_to_confirm.each do |space| %>
     <li><%= space.name %></li>
     <li><%= space.description %></li>
-    <li><%= space.price %></li>
+    <li>£<%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
      <form action="/spaces/<%= space.id %>/confirm" method="post">
         <input type="hidden" name="_method" value="PATCH" />
@@ -51,4 +56,6 @@ Requests to confirm
 <% end %>
 </ul>
 
-Signed in as <%= @user %>
+
+</body>
+</html>

@@ -1,5 +1,32 @@
+<html>
+   <head>
+      <title>Login</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@300;400&display=swap" rel="stylesheet">
+   </head>
+   <style> body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 200px;
+    height: 150px;
+    background-color:lightyellow; 
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+    input { margin: 20px;}
+</style>
+
+<body>
+<h2>Enter login details</h2>
 <form action='/sessions/confirm' method='post'>
-  <input type='text' name='username' required><br>
-  <input type='password' name='password'required><br>
-  <input type='submit' value='Submit'>
+Username:  <input type='text' name='username' required><br>
+Password:  <input type='password' name='password'required><br>
+  <input type='submit' value='Login'/>
 </form>
+
+</body>
+</html>
