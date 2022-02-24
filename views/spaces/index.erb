@@ -1,36 +1,67 @@
+Signed in as <%= @user %>                     
+
+<br>
+<br>
+
+<html>
+   <head>
+      <title>HTML Backgorund Color</title>
+   </head>
+   <body style="background-color:lightyellow;">
+     </body>
+</html>
+
+<a href="http://localhost:9292/sessions/logout">
+<button>Sign-out</button>
+</a>
+
+<%# <div class="align-right">
+        <button type="button">Button</button>
+      </div> %>
+<br>
+<br>
+
 <a href="http://localhost:9292/spaces/requests">
-<button>requests</button>
+<button>Requests</button>
 </a>
 
 <br>
+<br>
 
 <a href="http://localhost:9292/spaces/new">
-<button>list a space</button>
+<button>List a space</button>
 </a>
-<form action="/spaces/availability" method="post">
+
+
+<br>
+<br>
+
+<form style="text-align: center;" action="/spaces/availability" method="post">
   <input type='date' name='available from' required min="<%= Date.today %>" max="<%= Date.today + 730%>" ><br>
   <input type='date' name='available to' required min="<%= Date.today %>" max="<%= Date.today + 730%>"><br>
-  <input type='submit' value='list available spaces'>
+  <input type='submit' value='List available spaces'>
+
 </form>
 
-<a href="http://localhost:9292/sessions/logout">
-<button>sign out</button>
-</a>
+<br>
 
-<ul>
+<ul> 
 <% @spaces.each do |space| %>
     <li><%= space.name %></li>
     <li><%= space.description %></li>
     <li><%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
-     <form  action="/spaces/<%= space.id %>/request" method="post">
+
+     <form style="text-align: center;" action="/spaces/<%= space.id %>/request" method="post">
         <input type="hidden" name="_method" value="PATCH" />
-        <input type="submit" value="Request Space" name="Request Space" onclick="clicked(event)"/>
+        <input type="submit" value="Request space" onclick="clicked(event)"/>
+
       </form><br>
 <% end %>
 </ul>
 
-Signed in as <%= @user %>
+
+
 
 <script>
 function clicked() {

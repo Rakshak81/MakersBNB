@@ -1,11 +1,34 @@
-<h1> list a space </h1>
+
+<html>
+   <head>
+      <title>HTML Backgorund Color</title>
+   </head>
+   <body style="background-color:lightgreen;">
+     </body>
+</html>
+
+
+<a href="http://localhost:9292/sessions/logout">
+<button>Sign-out</button>
+</a>
+
 <br>
-<form action='/spaces/new' method="post">
-<input type='text' name='name' placeholder='name' required>
-<textarea name='description' rows="10" cols="3" required></textarea>
-<input type='number' name='price' placeholder='price' required>
-<input type='date' name='start_date' required min="<%= Date.today %>" max="<%= Date.today + 730%>">
-<input type='date' name='end_date' required min="<%= Date.today %>" max="<%= Date.today + 730%>">
-<input type='submit' value='list my space'>
+<br>
+
+<a href="http://localhost:9292/spaces/index">
+<button>Spaces</button>
+</a>
+<br>
+<br>
+
+<h1 style="text-align: center;"> List a space </h1>
+<br>
+<form style="text-align: center;" action='/spaces/new' method="post">
+<input type='text' name='name' placeholder='Name' required><br><br>
+<textarea name='description' rows="5" cols="16" placeholder='Property description' required></textarea><br><br>
+<input type='number' name='price' placeholder='Price' required><br><br>
+<input type='date' name='start_date' required min="<%= Date.today %>" max="<%= Date.today + 730%>"><br><br>
+<input type='date' name='end_date' required min="<%= Date.today %>" max="<%= Date.today + 730%>"><br><br>
+<input type='submit' value='List my space'>
 </form>
 
