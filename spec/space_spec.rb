@@ -36,13 +36,15 @@ describe Space do
     end
   end
 
-  describe '.confirm' do
+  describe '.confirm_request' do
     it 'changes the column of a space confirmed from false to true' do
       user = User.create(username: 'eddiearnold', email: 'eddiearnold@me.com', password: '12345')
+      user_two = User.create(username: 'charlotte', email: 'charlotte@me.com', password: '12345')
       space = Space.create(name: 'house', description: 'fancy house', price: '100', start_date: '2022/02/22', end_date: '2023/02/27', user_id: user.id)
-      new_space = Space.request(id: space.id)
-      confirmed_space = Space.confirm(id: new_space.id)
-      expect(confirmed_space.confirm).to eq true
+      Space.request(id: space.id, requested_by_id: user_two.id)
+      Space.confirm_request(id: space.id)
+      new_space = Space.find(id: space.id)
+      expect(new_space.confirmed).to eq 't'
     end
   end
 end

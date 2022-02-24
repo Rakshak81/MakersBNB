@@ -103,5 +103,16 @@ result.map do |space|
     end
     connection.exec("UPDATE spaces SET confirmed = TRUE WHERE id = '#{id}'")
   end
+
+  def self.find(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_manager_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb_manager')
+    end
+    result = connection.exec("SELECT * FROM spaces WHERE id = '#{id}'").first
+      Space.new(id: result['id'], name: result['name'], description: result['description'], price: result['price'],
+        start_date: result['start_date'], end_date: result['end_date'], user_id: result['user_id'], requested: result['requested'], confirmed: result['confirmed'])
+  end 
 end
 

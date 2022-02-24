@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/charlottebuchan/Projects/Makersbnb/spec/features/features_spec.rb": {
+      "/Users/eddiearnold/Projects/Makersbnb/spec/features/features_spec.rb": {
         "lines": [
           1,
           null,
@@ -86,7 +86,7 @@
           null
         ]
       },
-      "/Users/charlottebuchan/Projects/Makersbnb/spec/features/web_helpers.rb": {
+      "/Users/eddiearnold/Projects/Makersbnb/spec/features/web_helpers.rb": {
         "lines": [
           1,
           4,
@@ -118,7 +118,7 @@
           null
         ]
       },
-      "/Users/charlottebuchan/Projects/Makersbnb/spec/space_spec.rb": {
+      "/Users/eddiearnold/Projects/Makersbnb/spec/space_spec.rb": {
         "lines": [
           1,
           null,
@@ -163,8 +163,10 @@
           1,
           1,
           1,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -172,7 +174,7 @@
           null
         ]
       },
-      "/Users/charlottebuchan/Projects/Makersbnb/spec/user_spec.rb": {
+      "/Users/eddiearnold/Projects/Makersbnb/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -200,6 +202,6 @@
         ]
       }
     },
-    "timestamp": 1645630910
+    "timestamp": 1645705752
   }
 }
