@@ -34,7 +34,7 @@ class Space
     else
       connection = PG.connect(dbname: 'makersbnb_manager')
     end
-    result = connection.exec("SELECT * FROM spaces WHERE confirmed = false")
+    result = connection.exec("SELECT * FROM spaces WHERE confirmed = false ORDER BY price")
     result.map do |space|
       Space.new(id: space['id'], name: space['name'], description: space['description'], price: space['price'],
         start_date: space['start_date'], end_date: space['end_date'], user_id: space['user_id'], requested: space['requested'], confirmed: space['confirmed'])
