@@ -70,7 +70,7 @@ So that I don't book a space that is not available
 I would like to only see the available dates for that space
 
 ````
-
+````
 
 Instructions for 'makersbnb_manager' database, 'users' table, and 'spaces' table creation within psql.:
 
@@ -90,7 +90,7 @@ Instructions for 'makersbnb_manager_test' database, 'users' table, and 'spaces' 
 4. Run the query we have saved in the file db/migrations/01_CREATE_USERS_TABLES.SQL
 5. Run the query we have saved in the file db/migrations/02_CREATE_SPACES_TABLES.SQL
 
-
+````
 ````
 
 
