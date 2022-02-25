@@ -96,5 +96,5 @@ Instructions for 'makersbnb_manager_test' database, 'users' table, and 'spaces' 
 
 MVC Model of Makerbnb website code:
 
-![](public/images/Makersbnb_model.png)
+![](images/Makersbnb_model.png)
 
