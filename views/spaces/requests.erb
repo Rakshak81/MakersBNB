@@ -9,7 +9,8 @@
 
 <style> a {margin: 5px;}
 body {
-   background-color:orange;
+   background-color:lightblue;
+  color:rgba(0, 53, 70, 0.986);
    font-family: 'Arimo', sans-serif;
     font-family: 'Barlow Condensed', sans-serif;
     
@@ -22,9 +23,10 @@ Signed in as <%= @user %>
 </nav>
 
 
-<body align="center">
-     
-
+<body>
+ <table>
+ <tr>    
+<td>
 <h2>Requests made</h2>
 <ul style="list-style-type: none";>
 <% @requests_made.each do |space| %>
@@ -39,9 +41,9 @@ Signed in as <%= @user %>
     <% end %>
     <br>
 <% end %>
-</ul><br>
-
-
+</ul>
+</td>
+<td>
 <h2>Requests to confirm</h2>
 <ul style="list-style-type: none";>
 <% @requests_to_confirm.each do |space| %>
@@ -59,7 +61,9 @@ Signed in as <%= @user %>
     </form><br>
 <% end %>
 </ul>
-
+</td>
+</tr>
+</table>
 
 </body>
 </html>

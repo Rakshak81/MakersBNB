@@ -6,13 +6,28 @@
       <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Barlow+Condensed:wght@300;400&display=swap" rel="stylesheet">
    </head>
    <style> body {
+     
     background-color:lightyellow; 
     font-family: 'Arimo', sans-serif;
     font-family: 'Barlow Condensed', sans-serif;
+    color: rgb(100, 165, 114); 
 }
 a {margin: 5px;}
-   
+ul {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}  
+#available {
+  position: absolute;  
+  left: 45%
+}
+#request {
+  position: absolute;  
+  left: 450;
+}
 </style>
+
    <nav align="right" >
       Signed in as <%= @user %> 
       <a href="http://localhost:9292/sessions/logout"><button>Sign-out</button></a>
@@ -26,7 +41,7 @@ a {margin: 5px;}
 <h1 align="center" > The world is your oyster</h1>
 
 
-<form style="text-align: center;" action="/spaces/availability" method="post">
+<form  id= "available" action="/spaces/availability" method="post">
   <input type='date' name='available from' required min="<%= Date.today %>" max="<%= Date.today + 730%>" ><br>
   <input type='date' name='available to' required min="<%= Date.today %>" max="<%= Date.today + 730%>"><br>
   <input type='submit' value='List available spaces'>
@@ -34,13 +49,13 @@ a {margin: 5px;}
 
 <br>
 
-<ul style="list-style-type: none"; align="center";> 
+<ul style="list-style-type: none"; > 
   <% @spaces.each do |space| %>
     <li><%= space.name %></li>
     <li><%= space.description %></li>
     <li>£<%= space.price %></li>
     <li><%= space.start_date %> - <%= space.end_date %></li>
-     <form style="text-align: center;" action="/spaces/<%= space.id %>/request" method="post">
+     <form  id="request" action="/spaces/<%= space.id %>/request" method="post">
         <input type="hidden" name="_method" value="PATCH" />
         <input type="submit" value="Request space" onclick="clicked(event)"/>
       </form><br>
