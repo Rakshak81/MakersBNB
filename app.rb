@@ -41,6 +41,11 @@ class Makersbnb < Sinatra::Base
     redirect '/spaces/index'
   end
 
+  patch '/spaces/:id/deny' do
+    Space.request_denied(id: params['id'])
+    redirect '/spaces/index'
+  end
+
   get '/spaces/requests' do
     @user = session[:username]
     @requests_made = Space.requests_made(requested_by_id: session[:user_id])
