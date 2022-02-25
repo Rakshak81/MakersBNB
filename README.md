@@ -72,22 +72,23 @@ I would like to only see the available dates for that space
 ````
 
 
-Instructions for 'spaces' database creation within psql.:
+Instructions for 'makersbnb_manager' database, 'users' table, and 'spaces' table creation within psql.:
 
 1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE spaces;
+2. Create the database using the psql command CREATE DATABASE makersbnb_manager;
 3. Connect to the database using the pqsl command \c spaces;
-4. Run the query we have saved in the file 01_CREATE_USER_TABLE.SQL
-5. Run the query we have saved in the file 02_add_title_to_bookmarks.sql
+4. Run the query we have saved in the file 01_CREATE_USERS_TABLES.SQL
+5. Run the query we have saved in the file 02_CREATE_SPACES_TABLES.SQL
 
 
-Instructions for 'spaces' test database creation within psql.:
+
+Instructions for 'makersbnb_manager_test' database, 'users' table, and 'spaces' table creation within psql.:
 
 1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE bookmark_manager_test;
-3. Connect to the database using the pqsl command \c bookmark_manager_test;
-4. Run the query we have saved in the file 01_create_bookmarks_table.sql
-5. Run the query we have saved in the file 02_add_title_to_bookmarks.sql
+2. Create the database using the psql command CREATE DATABASE makersbnb_manager_test;
+3. Connect to the database using the pqsl command \c spaces;
+4. Run the query we have saved in the file db/migrations/01_CREATE_USERS_TABLES.SQL
+5. Run the query we have saved in the file db/migrations/02_CREATE_SPACES_TABLES.SQL
 
 
 ````
@@ -97,4 +98,3 @@ MVC Model of Makerbnb website code:
 
 ![](Makersbnb_model.png)
 
-TEST
