@@ -91,7 +91,7 @@ Instructions for 'makersbnb_manager_test' database, 'users' table, and 'spaces' 
 5. Run the query we have saved in the file db/migrations/02_CREATE_SPACES_TABLES.SQL
 
 ````
-````
+
 
 
 MVC Model of Makerbnb website code:
