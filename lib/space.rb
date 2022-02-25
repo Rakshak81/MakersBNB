@@ -69,6 +69,16 @@ class Space
   end
 
 
+  def self.request_denied(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_manager_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb_manager')
+    end
+    connection.exec("UPDATE spaces SET requested = FALSE, requested_by_id = NULL
+    WHERE id = '#{id}'")
+  end
+
 def self.requests_made(requested_by_id:)
   if ENV['ENVIRONMENT'] == 'test'
     connection = PG.connect(dbname: 'makersbnb_manager_test')
@@ -103,6 +113,7 @@ result.map do |space|
     end
     connection.exec("UPDATE spaces SET confirmed = TRUE WHERE id = '#{id}'")
   end
+  
 
   def self.find(id:)
     if ENV['ENVIRONMENT'] == 'test'

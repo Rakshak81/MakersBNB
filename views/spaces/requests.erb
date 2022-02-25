@@ -52,7 +52,11 @@ Signed in as <%= @user %>
      <form action="/spaces/<%= space.id %>/confirm" method="post">
         <input type="hidden" name="_method" value="PATCH" />
         <input type="submit" value="Confirm request"/>
-      </form><br>
+    </form><br>
+     <form action="/spaces/<%= space.id %>/deny" method="post">
+        <input type="hidden" name="_method" value="PATCH" />
+        <input type="submit" value="Deny"/>
+    </form><br>
 <% end %>
 </ul>
 
