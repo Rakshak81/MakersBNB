@@ -81,6 +81,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/spaces/new' do
+    @user = session[:username]
     erb :'spaces/new'
   end
 

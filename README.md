@@ -3,19 +3,65 @@ A user stories section (leave it blank for now). -->
 
 ## Makersbnb specification:
 
-We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
+This project is a creation of a web application that allows users to list spaces they have available and to hire out these spaces.  
+Following functionality included in the website.:
 
-<!-- We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
+* Ability for the user to set up an account.
+* Sign in and llist spaces as a user.
+* Ability to request spaces for hire.
+* Ability to confirm these requests when applied to the user's space.
+* Ability to list what spaces have been requested and confirmed.
 
-Headline specifications
+## Programming languages and framework used.:
 
-Any signed-up user can list a new space.
-Users can list multiple spaces.
-Users should be able to name their space, provide a short description of the space, and a price per night.
-Users should be able to offer a range of dates where their space is available.
-Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
-Nights for which a space has already been booked should not be available for users to book that space.
-Until a user has confirmed a booking request, that space can still be booked for that night. -->
+* Ruby 3.0.0
+* postgresSQL
+* Sinatra
+* html:  includes CSS and JavaScript
+* rpsec
+* rack
+
+## Run following in terminal upon initial creation of program.:
+* `git clone https://github.com/Jaroslaw-Roman-Cudzich/Makersbnb.git`
+* `cd Makersbnb`
+* `bundle install`
+* `rackup`
+
+
+
+## Instructions for 'makersbnb_manager' database, 'users' table, and 'spaces' table creation within psql.:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE makersbnb_manager;
+3. Connect to the database using the pqsl command \c makersbnb_manager;
+4. Run the query we have saved in the file 01_CREATE_USERS_TABLES.SQL
+5. Run the query we have saved in the file 02_CREATE_SPACES_TABLES.SQL
+
+
+
+## Instructions for 'makersbnb_manager_test' database, 'users' table, and 'spaces' table creation within psql.:
+
+1. Connect to psql
+2. Create the database using the psql command CREATE DATABASE makersbnb_manager_test;
+3. Connect to the database using the pqsl command \c makersbnb_manager_test;
+4. Run the query we have saved in the file db/migrations/01_CREATE_USERS_TABLES.SQL
+5. Run the query we have saved in the file db/migrations/02_CREATE_SPACES_TABLES.SQL
+
+````
+````
+
+
+## MVC Model of Makerbnb website code:
+
+![](public/images/Makersbnb_model.png)
+
+
+
+## Screen shot of home page:
+
+![](public/images/screenshot_home_page.png)
+
+
 
 
 ## User Stories:
@@ -43,7 +89,7 @@ I would like a description of the space
 
 As a host_user
 To be able to let out my space
-I would like to set a price per night on each space
+I would like to set a price per space
 
 As a host_user
 To be able to let out my space
@@ -70,31 +116,6 @@ So that I don't book a space that is not available
 I would like to only see the available dates for that space
 
 ````
-````
-
-Instructions for 'makersbnb_manager' database, 'users' table, and 'spaces' table creation within psql.:
-
-1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE makersbnb_manager;
-3. Connect to the database using the pqsl command \c spaces;
-4. Run the query we have saved in the file 01_CREATE_USERS_TABLES.SQL
-5. Run the query we have saved in the file 02_CREATE_SPACES_TABLES.SQL
 
 
-
-Instructions for 'makersbnb_manager_test' database, 'users' table, and 'spaces' table creation within psql.:
-
-1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE makersbnb_manager_test;
-3. Connect to the database using the pqsl command \c spaces;
-4. Run the query we have saved in the file db/migrations/01_CREATE_USERS_TABLES.SQL
-5. Run the query we have saved in the file db/migrations/02_CREATE_SPACES_TABLES.SQL
-
-````
-
-
-
-MVC Model of Makerbnb website code:
-
-![](images/Makersbnb_model.png)
 
